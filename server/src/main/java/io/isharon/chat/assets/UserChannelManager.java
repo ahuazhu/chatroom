@@ -16,7 +16,6 @@ public class UserChannelManager {
         userChannel.put(user, channel);
     }
 
-
     public static Channel getChannel(User user) {
         return userChannel.get(user);
     }

@@ -67,16 +67,8 @@ public class Client {
         bootstrap.releaseExternalResources();
     }
 
-    public ClientBootstrap getBootstrap() {
-        return bootstrap;
-    }
-
     public ChatClientHandler getHandler() {
         return handler;
-    }
-
-    public ChannelFuture getChannelFuture() {
-        return channelFuture;
     }
 
     public static void main(String[] args) {

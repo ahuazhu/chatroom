@@ -22,9 +22,7 @@ public class ChatRoom {
     private List<User> users;
 
     public void addUser(User user) {
-        synchronized (users) {
-            users.add(user);
-        }
+        users.add(user);
     }
 
     public void removeUser(User user) {

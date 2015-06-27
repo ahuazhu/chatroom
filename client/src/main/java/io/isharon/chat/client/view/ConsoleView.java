@@ -25,11 +25,10 @@ public class ConsoleView implements View {
     public void start() {
         new Runnable() {
             public void run() {
-                sendMessage();
+                waitAndSendMessage();
             }
         }.run();
     }
-
 
 
     public void onMessage(Message message) {
@@ -52,21 +51,26 @@ public class ConsoleView implements View {
 
         msg = message.getContent();
 
+        if (message.getType() == Message.Type.BYE) {
+            System.exit(0);
+        }
+
         if (message != null) {
             System.out.println(String.format("%s %s:%s",
                     DFT.format(message.getDate()), message.getUserName(), msg));
         }
+
     }
 
     public void setChannel(Channel channel) {
         this.channel = channel;
     }
 
-    public void sendMessage() {
+    public void waitAndSendMessage() {
         Scanner scanner = new Scanner(System.in);
-        for ( ; ; ) {
+        for (; ; ) {
             if (scanner.hasNext()) {
-                final String input = scanner.next();
+                final String input = scanner.nextLine();
                 Message message = new Message();
 
                 switch (Status.getInstance().getStatus()) {

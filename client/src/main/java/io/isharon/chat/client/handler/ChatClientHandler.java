@@ -11,8 +11,7 @@ import org.jboss.netty.channel.group.ChannelGroup;
 import org.jboss.netty.channel.group.DefaultChannelGroup;
 
 public class ChatClientHandler extends SimpleChannelHandler {
-    public static final ChannelGroup channelGroup = new DefaultChannelGroup(
-            "client-channel-group");
+    public static final ChannelGroup channelGroup = new DefaultChannelGroup("client-channel-group");
 
     View view;
 
@@ -40,15 +39,6 @@ public class ChatClientHandler extends SimpleChannelHandler {
         if (view != null) {
             view.onMessage(message);
         }
-
-
-        if (content.equalsIgnoreCase("bye")) {
-            synchronized (this) {
-                this.notify();
-            }
-            return;
-        }
-
     }
 
     @Override

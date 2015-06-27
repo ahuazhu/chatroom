@@ -44,7 +44,7 @@ public class Message {
 
         NAME_REJECT,
 
-        CHAT,
+        CHAT, BYE,
     }
 
     private Type type;
